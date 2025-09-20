@@ -12,7 +12,7 @@ import ContactHome from '@/components/home/ContactHome';
 import dynamic from 'next/dynamic';
 
 // A importação dinâmica foi simplificada para a sintaxe mais comum e estável,
-// garantindo que funcione corretamente com a exportação estática (next export).
+// garantindo que funcione corretamente com asdada exportação estática (next export).
 const TestimonialsCarousel = dynamic(
   () => import('@/components/home/TestimonialsCarousel'),
   { 

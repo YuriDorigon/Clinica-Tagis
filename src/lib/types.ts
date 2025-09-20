@@ -24,9 +24,18 @@ export interface Doctor {
    * Array de IDs de documentos da coleção 'specialties'.
    * Exemplo: ['id_ortopedia_geral', 'id_ortopedia_joelho']
    */
-  specialtyIds: string[]; 
-  specialtyNames?: string[]; 
+  specialtyIds?: string[];
+  /** 
+   * Array de IDs de documentos da coleção 'exams'.
+   * Exemplo: ['id_ultrassom', 'id_ecocardiograma']
+   */
+  examIds?: string[];
+
+  // Campos para renderização, não armazenados no DB
+  specialtyNames?: string[];
+  examNames?: string[];
 }
+
 
 export interface Convenio {
   id: string; // Firestore document ID
@@ -56,3 +65,5 @@ export interface Testimonial {
   quote: string;
   name: string;
 }
+
+export type TestimonialFormData = Omit<Testimonial, 'id'>;

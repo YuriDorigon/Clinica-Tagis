@@ -43,7 +43,6 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Clinica Tagis. Todos os direitos reservados.</p>
-          <p className="mt-1">Feito com ❤️ pela Equipe Tagis.</p>
         </div>
       </div>
     </footer>

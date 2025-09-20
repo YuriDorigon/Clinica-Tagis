@@ -41,17 +41,17 @@ export default function ContatoPage() {
               </div>
             </div>
             <div className="flex items-center">
+              <MessageSquare className="h-7 w-7 text-primary mr-4 flex-shrink-0" />
+              <div>
+                <strong className="block">WhatsApp (Agendamentos):</strong>
+                <a href={`https://wa.me/5548991936045?text=${encodeURIComponent('Olá! Vim através do site e gostaria de mais informações.')}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary">(48) 99193-6045</a>
+              </div>
+            </div>
+            <div className="flex items-center">
               <Phone className="h-7 w-7 text-primary mr-4 flex-shrink-0" />
               <div>
                 <strong className="block">Telefone Fixo:</strong>
                 <a href="tel:+554830353377" className="hover:text-primary">(48) 3035-3377</a>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <MessageSquare className="h-7 w-7 text-primary mr-4 flex-shrink-0" />
-              <div>
-                <strong className="block">WhatsApp:</strong>
-                <a href={`https://wa.me/5548991936045?text=${encodeURIComponent('Olá! Vim através do site e gostaria de mais informações.')}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary">(48) 99193-6045</a>
               </div>
             </div>
              <div className="flex items-start">

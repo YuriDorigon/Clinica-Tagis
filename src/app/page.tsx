@@ -2,6 +2,7 @@
 "use client";
 
 import HeroSection from '@/components/home/HeroSection';
+import PromotionalBanner from '@/components/home/PromotionalBanner';
 import PatientJourney from '@/components/home/PatientJourney';
 import AboutClinic from '@/components/home/AboutClinic';
 import SpecialtiesGrid from '@/components/home/SpecialtiesGrid';
@@ -24,6 +25,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <PromotionalBanner />
       <PatientJourney />
       <AboutClinic />
       <SpecialtiesGrid />

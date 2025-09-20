@@ -6,12 +6,13 @@ import DoctorsList from '@/components/doutores/DoctorsList';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { db } from '@/lib/firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import type { Doctor, Specialty } from '@/lib/types';
+import type { Doctor, Specialty, Exam } from '@/lib/types';
 import { Loader2 } from 'lucide-react';
 
 export default function CorpoClinicoPage() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [specialties, setSpecialties] = useState<Specialty[]>([]);
+  const [exams, setExams] = useState<Exam[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,9 +28,16 @@ export default function CorpoClinicoPage() {
         const specialtiesQuery = query(specialtiesCol, orderBy('name'));
         const specialtySnapshot = await getDocs(specialtiesQuery);
         const specialtiesList = specialtySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Specialty));
+
+        const examsCol = collection(db, 'exams');
+        const examsQuery = query(examsCol, orderBy('name'));
+        const examSnapshot = await getDocs(examsQuery);
+        const examsList = examSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Exam));
         
         setDoctors(doctorsList);
         setSpecialties(specialtiesList);
+        setExams(examsList);
+
       } catch (error) {
         console.error("Error fetching data for doctors page:", error);
       } finally {
@@ -52,7 +60,11 @@ export default function CorpoClinicoPage() {
           <span className="ml-2">Carregando corpo clínico...</span>
         </div>
       ) : (
-        <DoctorsList initialDoctors={doctors} initialSpecialties={specialties} />
+        <DoctorsList 
+          initialDoctors={doctors} 
+          initialSpecialties={specialties}
+          initialExams={exams}
+        />
       )}
     </div>
   );
